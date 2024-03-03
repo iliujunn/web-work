@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>毛泽东</title>
+</head>
+<body>
+ <div class="container">
+    <div class="left">
+        <div class="modal">
+            <h1>毛 泽 东</h1>
+        </div>
+<!--        <img src="https://picsum.photos/200/300" alt="毛泽东" class="img">-->
+    </div>
+
+     <div class="right">
+            <h1>毛泽东</h1>
+
+         <p>字润之，湖南湘潭人。</p>
+         <p>中国人民的领袖，伟大的马克思主义者</p>
+         <p>伟大的无产阶级革命家、战略家、理论家。</p>
+         <p>中国共产党、中国人民解放军和中华人民共和国的主要缔造者和领导人</p>
+         <p>马克思主义中国化的伟大开拓者,近代以来中国伟大的爱国者和民族英雄,中国共产党第一代中央领导集体的核心，领导中国人民彻底改变自己命运和国家面貌的一代伟人。</p>
+         <br>
+         <p>毛泽东被视为现代世界历史中最重要的人物之一， 《时代》杂志也将他评为20世纪最具影响100人之—.</p>
+     </div>
+ </div>
+
+ <!-- 在HTML中添加一个新的div元素，用于作为开关 -->
+ <div id="homework-switch">
+     <div class="option current" data-value="index.html">作业一</div>
+     <div class="option" data-value="index2.html">作业二</div>
+     <div class="option" data-value="index3.html">作业三</div>
+ </div>
+
+
+</body>
+</html>
+
+<style>
+    html body{
+
+        margin: 0;
+        padding: 0;
+    }
+    .container{
+        display: flex;
+        background-color: white;
+        padding: 10px;
+    }
+    .container .left{
+        width: 40%;
+        height: 1000px;
+
+        background-color: white;
+        --bg: url(mzd.jpg) no-repeat  center/cover;
+        background: var(--bg);
+
+
+    }
+    .container .left .modal{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.7);
+        color:#fff;
+    }
+    .container .left .modal h1{
+        width: 100%;
+        height:100%;
+        display: flex;
+
+        margin: auto;
+        text-align: center;
+
+
+        justify-content: center;
+        align-items: center;
+        font-size: 3vw;
+        color:#000;
+
+        text-stroke:1px #fff;
+        -webkit-text-stroke:1px #fff;
+
+        background: var(--bg);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+    .container .left .img{
+        width: 100%;
+        max-height: 100%;
+    }
+    .container .right{
+        width: 60%;
+        height: 100%;
+        padding: 20px;
+        background-color: white;
+    }
+    .container .right h1{
+        font-size: 30px;
+        color: #000;
+    }
+    .container .right p{
+        font-size: 20px;
+        color: #000;
+    }
+    #homework-switch:hover {
+        opacity: 1; /* 鼠标移入时不透明 */
+    }
+    #homework-switch {
+        position: fixed; /* 使用固定定位 */
+        right: 10px; /* 从右边界10px的位置 */
+        bottom: 10px; /* 从底部10px的位置 */
+        visibility: visible; /* 默认可见 */
+        opacity: 0; /* 默认不透明 */
+        transition: opacity 0.5s; /* 添加过渡效果 */
+        border-radius: 10px; /* 添加圆角 */
+        overflow: hidden; /* 隐藏超出的内容 */
+        display: flex; /* 使用flex布局 */
+    }
+
+    #homework-switch .option {
+        width: auto; /* 宽度自适应 */
+        text-align: center;
+        padding: 10px 2px;
+        cursor: pointer;
+        background-color: #f0f0f0; /* 添加背景颜色 */
+        border-right: 1px solid #ccc; /* 添加轮廓 */
+        flex-grow: 1; /* 允许选项在有多余空间时进行拉伸 */
+    }
+
+    #homework-switch .option:last-child {
+        border-right: none; /* 移除最后一个选项的右边框 */
+    }
+
+    #homework-switch .option.current {
+        background: linear-gradient(45deg, #f0f0f0, dimgrey); /* 为当前选项添加渐变背景颜色 */
+    }
+
+    #homework-switch .option:hover {
+        background-color: #e0e0e0; /* 为鼠标悬停在选项上时添加不同的背景颜色 */
+    }
+</style>
+
+<script>
+    // 在JavaScript中添加事件监听器
+    document.getElementById('homework-switch').addEventListener('click', function(e) {
+        // 当用户选择一个选项时，重定向到相应的页面
+        if(e.target.classList.contains('option')) {
+            var url = window.location.href;
+
+            // 如果用户点击的选项不是当前页面对应的选项，那么重定向到相应的页面
+            if (url.indexOf(e.target.dataset.value) === -1) {
+                window.location.href = e.target.dataset.value;
+            }
+        }
+    });
+
+    window.onload = function() {
+        // 获取当前页面的URL
+        var url = window.location.href;
+
+        // 获取所有的选项卡
+        var options = document.querySelectorAll('#homework-switch .option');
+
+        // 遍历所有的选项卡
+        for (var i = 0; i < options.length; i++) {
+            // 如果当前页面的URL包含了选项卡的data-value属性值
+            if (url.indexOf(options[i].dataset.value) !== -1) {
+                // 移除所有选项卡的current类
+                for (var j = 0; j < options.length; j++) {
+                    options[j].classList.remove('current');
+                }
+
+                // 为当前选项卡添加current类
+                options[i].classList.add('current');
+
+                // 结束循环
+                break;
+            }
+        }
+    };
+</script>

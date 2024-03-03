@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>课表</title>
+</head>
+<body>
+    <div class="container">
+        <h1 >
+            教师课表
+        </h1>
+        <p>教师姓名:张三</p>
+        <div class="table">
+
+            <table >
+                <tr>
+                    <th></th>
+                    <th>星期一</th>
+                    <th>星期二</th>
+                    <th>星期三</th>
+                    <th>星期四</th>
+                    <th>星期五</th>
+                    <th>星期六</th>
+                    <th>星期日</th>
+                </tr>
+                <tr>
+                    <td rowspan="2">上午</td>
+                    <td><p>web应用开发</p><p>第01-10周</p> <p>新2-209</p></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td> </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td rowspan="2">下午</td>
+                    <td><p>web应用开发</p><p>第01-10周</p> <p>新1-501</p></td>
+                    <td><p>数据结构与算法综合实验</p><p>第01-08周</p> <p>学海楼-308</p></td>
+                    <td></td>
+                    <td></td>
+                    <td><p>数据结构与算法综合实验</p><p>第01-08周</p> <p>学海楼-308</p></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><p>web应用开发</p><p>第01-10周</p> <p>新1-201</p></td>
+                    <td><p>数据结构与算法综合实验</p><p>第01-08周</p> <p>学海楼-308</p></td>
+                    <td></td>
+                    <td><p>数据结构与算法综合实验</p><p>第01-08周</p> <p>学海楼-308</p></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>晚上</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+<div id="homework-switch">
+    <div class="option current" data-value="index.html">作业一</div>
+    <div class="option" data-value="index2.html">作业二</div>
+    <div class="option" data-value="index3.html">作业三</div>
+</div>
+</html>
+
+<style>
+    html body{
+
+        margin: 0;
+        padding: 0;
+    }
+
+    .container{
+        background-color: white;
+        display: inline-block;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        top: 40%;
+        left: 50%;
+    }
+
+    .container h1{
+        text-align: center;
+        font-family: Arial, sans-serif;
+    }
+
+    .container p{
+        font-family: Arial, sans-serif;
+
+    }
+    table {
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+        text-align: center;
+        min-width: 150px;
+        height: 50px;
+    }
+    .table{
+
+    }
+    #homework-switch:hover {
+        opacity: 1; /* 鼠标移入时不透明 */
+    }
+    #homework-switch {
+        position: fixed; /* 使用固定定位 */
+        right: 10px; /* 从右边界10px的位置 */
+        bottom: 10px; /* 从底部10px的位置 */
+        visibility: visible; /* 默认可见 */
+        opacity: 0; /* 默认不透明 */
+        transition: opacity 0.5s; /* 添加过渡效果 */
+        border-radius: 10px; /* 添加圆角 */
+        overflow: hidden; /* 隐藏超出的内容 */
+        display: flex; /* 使用flex布局 */
+    }
+
+    #homework-switch .option {
+        width: auto; /* 宽度自适应 */
+        text-align: center;
+        padding: 10px 2px;
+        cursor: pointer;
+        background-color: #f0f0f0; /* 添加背景颜色 */
+        border-right: 1px solid #ccc; /* 添加轮廓 */
+        flex-grow: 1; /* 允许选项在有多余空间时进行拉伸 */
+    }
+
+    #homework-switch .option:last-child {
+        border-right: none; /* 移除最后一个选项的右边框 */
+    }
+
+    #homework-switch .option.current {
+        background: linear-gradient(45deg, #f0f0f0, dimgrey); /* 为当前选项添加渐变背景颜色 */
+    }
+
+    #homework-switch .option:hover {
+        background-color: #e0e0e0; /* 为鼠标悬停在选项上时添加不同的背景颜色 */
+    }
+
+</style>
+
+<script>
+    document.getElementById('homework-switch').addEventListener('click', function(e) {
+        // 当用户选择一个选项时，重定向到相应的页面
+        if(e.target.classList.contains('option')) {
+            var url = window.location.href;
+
+            // 如果用户点击的选项不是当前页面对应的选项，那么重定向到相应的页面
+            if (url.indexOf(e.target.dataset.value) === -1) {
+                window.location.href = e.target.dataset.value;
+            }
+        }
+    });
+
+    window.onload = function() {
+        // 获取当前页面的URL
+        var url = window.location.href;
+
+        // 获取所有的选项卡
+        var options = document.querySelectorAll('#homework-switch .option');
+
+        // 遍历所有的选项卡
+        for (var i = 0; i < options.length; i++) {
+            // 如果当前页面的URL包含了选项卡的data-value属性值
+            if (url.indexOf(options[i].dataset.value) !== -1) {
+                // 移除所有选项卡的current类
+                for (var j = 0; j < options.length; j++) {
+                    options[j].classList.remove('current');
+                }
+
+                // 为当前选项卡添加current类
+                options[i].classList.add('current');
+
+                // 结束循环
+                break;
+            }
+        }
+    };
+</script>
