@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>响应式登录界面</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+        }
+
+        .container{
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            justify-content: space-between; /* 元素之间留出间隔 */
+        }
+
+        .login-container {
+            max-width: 800px; /* 更大的最大宽度 */
+            margin: 0 auto;
+
+            padding-left : 20px;
+            padding-right : 20px;
+            padding-top : 20px;
+            padding-bottom : 0;
+
+
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex; /* 使用 flex 布局 */
+            justify-content: space-between; /* 元素之间留出间隔 */
+            flex-wrap: wrap; /* 允许元素在必要时换行 */
+        }
+
+        .login-methods,
+        .login-form {
+            flex: 1; /* 两个子元素都可以伸缩 */
+            min-width: 250px; /* 最小宽度，防止元素变得太小 */
+            margin: 10px;
+        }
+
+        .login-methods {
+            text-align: center;
+        }
+
+        .login-method {
+            display: block;
+            margin-bottom: 10px;
+            padding: 10px;
+            background: #1e90ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .login-form {
+            padding: 10px;
+        }
+
+        .login-form input,
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .login-form input {
+            border: 1px solid #ddd;
+        }
+
+        .login-form button {
+            background: #1e90ff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .bottom{
+            margin:  0 auto;
+            height: 30px;
+            padding-top: 12px;
+            max-width: 840px; /* 更大的最大宽度 */
+            display: flex;
+            flex-wrap: wrap;
+            text-align: center;
+            background-color: grey;
+            bottom: 0;
+            color: white;
+
+        }
+        .bottom-left{
+            flex: 1;
+            width: 50%;
+            display: block;
+        }
+        .bottom-right{
+            flex: 1;
+            width: 50%;
+            display: block;
+        }
+
+        @media (max-width: 650px) {
+            .container{
+                flex-direction: column; /* 在小屏幕上垂直堆叠 */
+                /*height: 1800px;*/
+            }
+            .login-container {
+                flex-direction: column; /* 在小屏幕上垂直堆叠 */
+            }
+            .bottom{
+                flex-direction: column; /* 在小屏幕上垂直堆叠 */
+                height: auto;
+            }
+            .bottom-left,
+            .bottom-right{
+                width: 100%; /* 在小屏幕上元素宽度为100% */
+                /*margin: 10px 0;*/
+                /*min-height: 50px;*/
+            }
+
+            .login-methods,
+            .login-form {
+                width: 100%; /* 在小屏幕上元素宽度为100% */
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class = container>
+    <div class="login-container">
+        <div class="login-methods">
+            <a href="#" class="login-method">QQ登录</a>
+            <a href="#" class="login-method">微信登录</a>
+            <a href="#" class="login-method">支付宝登录</a>
+        </div>
+
+        <div class="login-form">
+            <input type="text" placeholder="用户名" required>
+            <input type="password" placeholder="密码" required>
+            <button type="submit">登录</button>
+        </div>
+
+    </div>
+    <div class = "bottom">
+        <div class = "bottom-left">
+            注册
+        </div>
+        <div class = "bottom-right">
+            忘记密码?
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

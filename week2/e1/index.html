@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            table-layout: fixed;
+            width: 100%;
+            background-color: #fff;
+            border: 1px solid black;
+        }
+        td {
+            height: 50px;
+            padding-left: 20px;
+        }
+        tr{
+            height: 50px;
+        }
+    </style>
+
+    <button id="styleSwitcher">切换样式表</button>
+    <link id="stylesheet" rel="stylesheet" href="index12.css">
+</head>
+<body>
+
+<table>
+    <tr>
+        <th>公司</th>
+        <th>联系人</th>
+        <th>地区</th>
+    </tr>
+    <tr>
+        <td>阿里巴巴</td>
+        <td>马云</td>
+        <td>杭州</td>
+    </tr>
+    <tr>
+        <td>华为</td>
+        <td>任正非</td>
+        <td>深圳</td>
+    </tr>
+    <tr>
+        <td>腾讯</td>
+        <td>马化腾</td>
+        <td>深圳</td>
+    </tr>
+    <tr>
+        <td>网易</td>
+        <td>丁磊</td>
+        <td>广州</td>
+    </tr>
+    <tr>
+        <td>百度</td>
+        <td>李彦宏</td>
+        <td>北京</td>
+    </tr>
+    <tr>
+        <td>小米</td>
+        <td>雷军</td>
+        <td>北京</td>
+    </tr>
+    <tr>
+        <td>京东</td>
+        <td>刘强东</td>
+        <td>北京</td>
+    </tr>
+    <tr>
+        <td>美团</td>
+        <td>王兴</td>
+        <td>北京</td>
+    </tr>
+</table>
+</body>
+</html>
+
+<script>
+    document.getElementById('styleSwitcher').addEventListener('click', function() {
+        var stylesheet = document.getElementById('stylesheet');
+        if (stylesheet.getAttribute('href') === 'index12.css') {
+            stylesheet.setAttribute('href', 'index1.css');
+        } else {
+            stylesheet.setAttribute('href', 'index12.css');
+        }
+    });
+</script>
